@@ -32,8 +32,9 @@ export default defineConfigWithTheme<ThemeConfig>({
     }
   },
   themeConfig: {
-    name: 'flaribbit',
+    name: 'Ying Luan',
     cover: '/vitepress-theme-sakura/60651947_p0.jpg',
+    hello: 'Hello, Ying Luan',
     social: [
       { icon: 'fa-github', url: 'https://github.com' },
       { icon: 'fa-twitter', url: 'https://twitter.com' },
