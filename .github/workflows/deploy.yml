@@ -28,6 +28,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository (包含子模块)
+        uses: actions/checkout@v3
+        with:
+          submodules: recursive
+      - name: Update submodules to latest commit
+        run: git submodule update --remote posts
+
       - name: Checkout
         uses: actions/checkout@v4
         with:
