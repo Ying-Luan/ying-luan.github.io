@@ -10,9 +10,12 @@ export interface ThemeConfig {
 }
 export default defineConfigWithTheme<ThemeConfig>({
   lang: 'zh-CN',
-  base: '/vitepress-theme-sakura/',
+  title: "樱花乱飘的幻境",
+  base: '/',
   // from https://codybontecou.com/tailwindcss-with-vitepress.html
   head: [
+    // favicon
+    ['link', { rel: 'icon', href: '/vitepress-theme-sakura/yinghua.svg' }],
     // 字体支持
     ['link', { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/regular.min.css' }],
     ['link', { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css' }],
@@ -34,11 +37,12 @@ export default defineConfigWithTheme<ThemeConfig>({
   themeConfig: {
     name: 'Ying Luan',
     cover: '/vitepress-theme-sakura/60651947_p0.jpg',
-    hello: 'Hello, Ying Luan',
+    hello: '你好，樱花乱飘',
+    motto: '不要因为走得太远，而忘记我们为什么出发',
     social: [
-      { icon: 'fa-github', url: 'https://github.com' },
+      { icon: 'fa-github', url: 'https://github.com/Ying-Luan' },
       { icon: 'fa-twitter', url: 'https://twitter.com' },
-      { icon: 'fa-weibo', url: 'https://weibo.com' },
+      { icon: 'fas fa-envelope', url: 'mailto:3433800035@qq.com' },
     ],
     waline: 'https://blog-waline-e7jqcxb9s-flaribbit.vercel.app/',
   }

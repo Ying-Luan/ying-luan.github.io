@@ -20,6 +20,7 @@ pnpm add vitepress vitepress-theme-sakura sass
 创建配置文件
 
 `.vitepress/config.ts`
+
 ```ts
 import { type ThemeConfig } from 'vitepress-theme-sakura/.vitepress/config'
 import { defineConfigWithTheme } from 'vitepress'
@@ -53,6 +54,7 @@ export default defineConfigWithTheme<ThemeConfig>({
 其中 `themeConfig` 里面的内容就是要手动填写的主题配置。
 
 `.vitepress/theme/index.ts`
+
 ```ts
 import { type EnhanceAppContext } from 'vitepress'
 // @ts-ignore
@@ -88,6 +90,7 @@ export interface ThemeConfig {
 ```
 
 代码块主题配置，参见 [shiki 主题](https://github.com/shikijs/shiki/blob/main/docs/themes.md#all-themes)
+
 ```ts
 export type Theme =
   | 'css-variables'
@@ -122,6 +125,7 @@ export type Theme =
 ```
 
 ## 文章配置
+
 ```md
 ---
 title: 标题
@@ -138,6 +142,7 @@ tags: [标签1, 标签2]
 ```
 
 ## 功能
+
 - [x] 首页横幅
 - [x] 文章列表
 - [x] 文章样式
@@ -155,6 +160,7 @@ tags: [标签1, 标签2]
 - [ ] PWA
 
 ## 其他说明
+
 如你所见，这个博客主题完成度不是很高。
 
 我写这个主题的初衷有两个，一是为了学习前端，二是看到隔壁 wordpress 主题的性能太烂了，所以就想着移植一下。
@@ -164,6 +170,7 @@ tags: [标签1, 标签2]
 如果你希望学习自制博客所需要的前端技术，但目前是小白，那或许可以参考本项目代码。本项目代码质量不高，但毕竟也是小白写的，所以应该比较容易看懂。如果不是小白，则可以参考 [云猫猫的 Valaxy 仓库](https://github.com/YunYouJun/valaxy)。
 
 ## 感谢
+
 - [wordpress-theme-sakura](https://github.com/mashirozx/sakura)
 - [hexo-theme-yun](https://github.com/YunYouJun/hexo-theme-yun)
 - [vuejs/blog](https://github.com/vuejs/blog)
@@ -171,4 +178,5 @@ tags: [标签1, 标签2]
 - [xiaowai-api](https://api.ixiaowai.cn/)
 
 ## 不感谢
+
 - 某个关闭图床的网站
