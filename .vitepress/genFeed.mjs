@@ -18,7 +18,7 @@ async function genFeed() {
     link: url,
     language: siteData.lang,
     image: 'https://vuejs.org/images/logo.png',
-    favicon: `${url}/favicon.ico`,
+    favicon: `${url}/yinghua.svg`,
     copyright: siteData.themeConfig.name || '-',
   })
 

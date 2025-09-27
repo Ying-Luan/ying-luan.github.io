@@ -1,5 +1,6 @@
 import { defineConfigWithTheme } from 'vitepress'
 import fixKatex from './fix-katex'
+import { buildRss } from './rss'
 export interface ThemeConfig {
   name?: string,
   cover?: string,
@@ -8,11 +9,24 @@ export interface ThemeConfig {
   social?: { icon: string, url: string }[],
   waline?: string,
 }
+const rawBase = '/'
+const base = rawBase == '/' ? '' : rawBase
+const covers = [
+  base + '/60651947_p0.jpg',
+  base + '/SoundEuphonium.jpg',
+  base + '/SoundEuphonium2.png',
+  base + '/SoundEuphonium3.jpg',
+  base + '/SoundEuphonium4.jpg',
+]
 export default defineConfigWithTheme<ThemeConfig>({
   lang: 'zh-CN',
-  base: '/vitepress-theme-sakura/',
+  title: "樱花乱飘的幻境",
+  base: rawBase,
+  lastUpdated: false, // 禁用 Git 的 lastUpdated
   // from https://codybontecou.com/tailwindcss-with-vitepress.html
   head: [
+    // favicon
+    ['link', { rel: 'icon', href: base + '/favicon.svg' }],
     // 字体支持
     ['link', { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/regular.min.css' }],
     ['link', { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css' }],
@@ -33,13 +47,20 @@ export default defineConfigWithTheme<ThemeConfig>({
   },
   themeConfig: {
     name: 'Ying Luan',
-    cover: '/vitepress-theme-sakura/60651947_p0.jpg',
-    hello: 'Hello, Ying Luan',
+    cover: covers[2],
+    hello: '你好，樱花乱飘',
+    motto: '不要因为走得太远，而忘记我们为什么出发',
     social: [
-      { icon: 'fa-github', url: 'https://github.com' },
-      { icon: 'fa-twitter', url: 'https://twitter.com' },
-      { icon: 'fa-weibo', url: 'https://weibo.com' },
+      { icon: 'fab fa-github', url: 'https://github.com/Ying-Luan' },
+      { icon: 'fab fa-telegram', url: 'https://t.me/ying_luan' },
+      { icon: 'fas fa-envelope', url: 'mailto:3433800035@qq.com' },
     ],
-    waline: 'https://blog-waline-e7jqcxb9s-flaribbit.vercel.app/',
-  }
+    waline: 'https://waline.yingluan.cc/',
+  },
+  sitemap: {
+    hostname: 'https://yingluan.cc/',
+  },
+  async buildEnd(config) {
+    await buildRss(config)
+  },
 })
