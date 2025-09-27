@@ -4,12 +4,12 @@
       <i class="fa-solid fa-book"></i> 文章列表
       <hr />
     </div>
-    <div class="card" v-for="p in posts">
+    <div class="card" v-for="p in posts.sort((a, b) => new Date(b.update).getTime() - new Date(a.update).getTime())">
       <div class="image"></div>
       <div class="info">
         <div class="date">
           <i class="fa fa-clock"></i>
-          发布于 {{ new Date(p.create).toLocaleDateString('sv-SE') }}
+          更新于 {{ new Date(p.update).toLocaleDateString('sv-SE') }}
         </div>
         <a :href="base + p.href">
           <div class="title">{{ p.title }}</div>
@@ -59,6 +59,10 @@ const { posts, click = null } = defineProps<{
   .view,
   .tags {
     font-size: 14px;
+  }
+
+  .update-date {
+    color: var(--color-accent);
   }
 
   .fa {

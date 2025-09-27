@@ -1,6 +1,8 @@
 <template>
   <header>
-    <span class="brand"></span>
+    <span class="brand">
+      <img src="/山田涼.jpg" alt="头像" class="avatar" />
+    </span>
     <span class="container">
       <span class="menu">
         <ul>
@@ -49,6 +51,15 @@ header {
   .brand {
     justify-self: left;
     padding-left: 8px;
+    .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-left: 10px;
+    margin-right: 12px;
+    vertical-align: middle;
+    }
   }
 
   .container {
@@ -60,6 +71,7 @@ header {
   .other {
     justify-self: right;
     padding-right: 8px;
+    margin-right: 12px;
   }
 
   .menu {
