@@ -10,11 +10,13 @@
     <Tag v-else-if="path === 'tags/'" />
     <Article v-else />
   </main>
+  <Footer />
 </template>
 
 <script setup lang="ts">
 import Header from './Header.vue'
 import Banner from './Banner.vue'
+import Footer from './Footer.vue'
 import Article from './Article.vue'
 import BlogList from './BlogList.vue'
 import Tag from './Tag.vue'
