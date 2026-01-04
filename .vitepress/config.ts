@@ -15,6 +15,7 @@ export default defineConfigWithTheme<ThemeConfig>({
   lang: 'zh-CN',
   title: "樱花乱飘的幻境",
   base: rawBase,
+  lastUpdated: false, // 禁用 Git 的 lastUpdated
   // from https://codybontecou.com/tailwindcss-with-vitepress.html
   head: [
     // favicon

@@ -42,7 +42,7 @@ function getPost(md, file, postDir, asFeed = false) {
     title: data.title,
     href: `posts/${file.replace(/\.md$/, '.html')}`,
     create: +new Date(data.date) || timestamp,
-    update: timestamp,
+    update: data.updated ? +new Date(data.updated) : timestamp,
     tags: data.tags,
     cover: data.cover,
     excerpt: md.render(excerpt)

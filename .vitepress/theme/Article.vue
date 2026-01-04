@@ -60,7 +60,8 @@ const update = () => {
   if (index.value == -1) return
   title.value = data.page.value.title
   cover.value = `background-image: url(${data.page.value.frontmatter.cover || data.theme.value.cover})`
-  date.value = new Date(data.page.value.lastUpdated || posts[index.value].create).toLocaleDateString('sv-SE')
+  const updateTime = data.page.value.frontmatter.updated || posts[index.value].update || posts[index.value].create
+  date.value = new Date(updateTime).toLocaleDateString('sv-SE')
   waline.value?.update()
   let ival = index.value
   if (ival - 1 >= 0) {
