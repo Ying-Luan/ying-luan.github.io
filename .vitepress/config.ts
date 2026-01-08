@@ -11,6 +11,13 @@ export interface ThemeConfig {
 }
 const rawBase = '/'
 const base = rawBase == '/' ? '' : rawBase
+const covers = [
+  base + '/60651947_p0.jpg',
+  base + '/SoundEuphonium.jpg',
+  base + '/SoundEuphonium2.png',
+  base + '/SoundEuphonium3.jpg',
+  base + '/SoundEuphonium4.jpg',
+]
 export default defineConfigWithTheme<ThemeConfig>({
   lang: 'zh-CN',
   title: "樱花乱飘的幻境",
@@ -40,7 +47,7 @@ export default defineConfigWithTheme<ThemeConfig>({
   },
   themeConfig: {
     name: 'Ying Luan',
-    cover: base + '/60651947_p0.jpg',
+    cover: covers[2],
     hello: '你好，樱花乱飘',
     motto: '不要因为走得太远，而忘记我们为什么出发',
     social: [

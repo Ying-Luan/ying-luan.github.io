@@ -14,6 +14,8 @@
           &amp;
           <a href="https://github.com/flaribbit/vitepress-theme-sakura" target="_blank" rel="noopener noreferrer">vitepress-theme-sakura</a>
         </span>
+        <span class="sep">/</span>
+        <a href="https://icp.gov.moe/?keyword=20260031" target="_blank" rel="noopener noreferrer">萌ICP备20260031号</a>
       </div>
     </div>
   </footer>
