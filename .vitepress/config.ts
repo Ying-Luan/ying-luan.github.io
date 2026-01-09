@@ -51,8 +51,8 @@ export default defineConfigWithTheme<ThemeConfig>({
     hello: '你好，樱花乱飘',
     motto: '不要因为走得太远，而忘记我们为什么出发',
     social: [
-      { icon: 'fa-github', url: 'https://github.com/Ying-Luan' },
-      { icon: 'fa-twitter', url: 'https://twitter.com' },
+      { icon: 'fab fa-github', url: 'https://github.com/Ying-Luan' },
+      { icon: 'fab fa-telegram', url: 'https://t.me/ying_luan' },
       { icon: 'fas fa-envelope', url: 'mailto:3433800035@qq.com' },
     ],
     waline: 'https://blog-waline-e7jqcxb9s-flaribbit.vercel.app/',
