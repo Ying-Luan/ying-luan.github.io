@@ -4,7 +4,7 @@
       <i class="fa-solid fa-book"></i> 文章列表
       <hr />
     </div>
-    <div class="card" v-for="p in posts">
+    <div class="card" v-for="p in posts.sort((a, b) => new Date(b.update).getTime() - new Date(a.update).getTime())">
       <div class="image"></div>
       <div class="info">
         <div class="date">
