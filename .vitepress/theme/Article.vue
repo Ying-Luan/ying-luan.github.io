@@ -2,7 +2,12 @@
   <div class="abanner" :style="cover" v-if="index >= 0">
     <div class="titlebox">
       <h1 class="title">{{ title }}</h1>
-      <div class="info">{{ author }} · 更新于 {{ date }} · {{ view }} 次阅读</div>
+      <div class="info">
+        {{ author }}
+        <template v-if="createDate"> · 创建于 {{ createDate }} </template>
+        <template v-if="updateDate"> · 更新于 {{ updateDate }} </template>
+        · {{ view }} 次阅读
+      </div>
     </div>
   </div>
   <div class="article">
@@ -44,7 +49,8 @@ const base = data.site.value.base
 const route = useRoute()
 const title = ref('')
 const author = data.theme.value.name
-const date = ref('')
+const createDate = ref('')
+const updateDate = ref('')
 const view = ref(0)
 const cover = ref('')
 const active = ref(0)
@@ -60,8 +66,13 @@ const update = () => {
   if (index.value == -1) return
   title.value = data.page.value.title
   cover.value = `background-image: url(${data.page.value.frontmatter.cover || data.theme.value.cover})`
+
+  const createTime = data.page.value.frontmatter.date
   const updateTime = data.page.value.frontmatter.updated || posts[index.value].update || posts[index.value].create
-  date.value = new Date(updateTime).toLocaleDateString('sv-SE')
+
+  createDate.value = createTime ? new Date(createTime).toLocaleDateString('sv-SE') : ''
+  updateDate.value = updateTime ? new Date(updateTime).toLocaleDateString('sv-SE') : ''
+
   waline.value?.update()
   let ival = index.value
   if (ival - 1 >= 0) {
