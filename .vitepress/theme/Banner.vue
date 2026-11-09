@@ -31,7 +31,7 @@ const cover = themeConfig.cover
 </script>
 
 <style lang="scss">
-@import "./base.scss";
+@use "./base.scss" as *;
 
 .banner {
   background-size: cover;

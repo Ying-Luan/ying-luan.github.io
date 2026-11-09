@@ -63,4 +63,13 @@ export default defineConfigWithTheme<ThemeConfig>({
   async buildEnd(config) {
     await buildRss(config)
   },
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          api: 'modern',
+        }
+      }
+    }
+  }
 })

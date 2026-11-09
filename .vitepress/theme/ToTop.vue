@@ -30,7 +30,7 @@ onUnmounted(() => {
 </script>
 
 <style lang="scss">
-@import "./base.scss";
+@use "./base.scss" as *;
 .totop {
   position: fixed;
   width: 70px;
