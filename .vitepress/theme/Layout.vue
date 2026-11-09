@@ -1,11 +1,17 @@
 <template>
   <Header />
-  <aside />
   <main>
     <ToTop />
     <template v-if="path === ''">
       <Banner />
-      <BlogList :posts="posts" />
+      <div class="home-content">
+        <div class="home-posts">
+          <BlogList :posts="posts" />
+        </div>
+        <aside class="home-sidebar">
+          <SiteStats />
+        </aside>
+      </div>
     </template>
     <Tag v-else-if="path === 'tags/'" />
     <Article v-else />
@@ -21,12 +27,16 @@ import Article from './Article.vue'
 import BlogList from './BlogList.vue'
 import Tag from './Tag.vue'
 import ToTop from './ToTop.vue'
+import SiteStats from './SiteStats.vue'
+import { useVercount } from './composables/useVercount'
 import { computed } from 'vue'
 import { useRoute, useData } from 'vitepress'
 import { data as posts } from '../posts.data'
 const base = useData().site.value.base
 const route = useRoute()
 const path = computed(() => route.path.replace(base, '').replace('index.html', ''))
+
+useVercount()
 
 </script>
 
@@ -77,5 +87,50 @@ hr {
 ::-webkit-scrollbar-thumb {
   border-radius: 4px;
   background: var(--color-accent);
+}
+
+.home-content {
+  display: grid;
+  grid-template-columns: minmax(0, 800px) 180px;
+  align-items: start;
+  gap: 24px;
+  max-width: 1052px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.home-posts {
+  min-width: 0;
+
+  .bloglist {
+    width: 100%;
+  }
+}
+
+.home-sidebar {
+  margin-top: 74px;
+}
+
+@media (max-width: 1100px) {
+  .home-content {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+    max-width: 848px;
+  }
+
+  .home-sidebar {
+    grid-row: 1;
+    margin-top: 24px;
+  }
+}
+
+@media (max-width: 720px) {
+  .home-content {
+    padding: 0;
+  }
+
+  .home-sidebar {
+    margin: 24px 24px 0;
+  }
 }
 </style>

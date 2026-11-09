@@ -6,7 +6,7 @@
         {{ author }}
         <template v-if="createDate"> · 创建于 {{ createDate }} </template>
         <template v-if="updateDate"> · 更新于 {{ updateDate }} </template>
-        · {{ view }} 次阅读
+        · <span id="vercount_value_page_pv">—</span> 次阅读
       </div>
     </div>
   </div>
@@ -51,7 +51,6 @@ const title = ref('')
 const author = data.theme.value.name
 const createDate = ref('')
 const updateDate = ref('')
-const view = ref(0)
 const cover = ref('')
 const active = ref(0)
 const waline = ref<InstanceType<typeof Waline>>()
